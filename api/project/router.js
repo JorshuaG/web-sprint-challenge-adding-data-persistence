@@ -5,7 +5,9 @@ const router = express.Router();
 router.post("/", (req, res, next) => {
   Project.insert(req.body)
     .then((project) => {
-      res.status(201).json(project);
+      res
+        .status(201)
+        .json({ ...project, project_completed: !!project.project_completed });
     })
     .catch(next);
 });

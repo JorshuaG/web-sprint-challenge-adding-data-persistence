@@ -5,7 +5,7 @@ const router = express.Router();
 router.post("/", (req, res, next) => {
   Task.insert(req.body)
     .then((task) => {
-      res.status(201).json(task);
+      res.status(201).json({ ...task, task_completed: !!task.task_completed });
     })
     .catch(next);
 });

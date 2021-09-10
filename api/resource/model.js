@@ -1,7 +1,7 @@
 // build your `Resource` model here
 const db = require("../../data/dbConfig");
 
-function get() {
+async function get() {
   return db("resources");
 }
 
